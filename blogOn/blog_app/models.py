@@ -30,6 +30,12 @@ class Post(models.Model):
         This will approve comments.
         """
         return self.comments.filter(approved_comment=True)
+    
+    def get_absolute_url(self) -> Any:
+        """
+        This will return the absolute url.
+        """
+        return reverse("post_detail", kwargs={'pk': self.pk})
 
     def __str__(self) -> str:
         return self.title
@@ -54,6 +60,12 @@ class Comment(models.Model):
         """
         self.approved_comment = True
         self.save()
+
+    def get_absolute_url(self) -> Any:
+        """
+        This will return the absolute url.
+        """
+        return reverse('post_list')
     
     def __str__(self) -> str:
         return self.text
