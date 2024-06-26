@@ -27,3 +27,9 @@ class PostListView(ListView):
                 '-published_date')
 
 
+class PostDetailView(DetailView):
+    """
+    Handles post detail view
+    """
+    model = Post
+    
