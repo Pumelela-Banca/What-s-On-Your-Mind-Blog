@@ -66,6 +66,6 @@ class Comment(models.Model):
         This will return the absolute url.
         """
         return reverse('post_list')
-    
+
     def __str__(self) -> str:
         return self.text
