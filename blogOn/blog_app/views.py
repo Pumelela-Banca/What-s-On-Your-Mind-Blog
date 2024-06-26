@@ -9,4 +9,5 @@ class AboutView(TemplateView):
     """
     Handles about page
     """
-    pass
+    template_name = 'about.html'
+
