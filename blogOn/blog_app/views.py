@@ -66,3 +66,17 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
     """
     model = Post
     success_url = reverse_lazy('post_list')
+
+
+class DraftListView(LoginRequiredMixin, ListView):
+    """
+    Class for listing drafts
+    """
+    login_url = '/login/'
+    redirect_field_name = 'blog_app/post_list.html'
+    
+    model = Post
+
+    def get_queryset(self):
+        return Post.objects.filter(
+            published_date__isnull=True).order_by('created_date')
