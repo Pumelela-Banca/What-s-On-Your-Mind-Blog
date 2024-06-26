@@ -4,6 +4,7 @@ from django.views.generic import (TemplateView, ListView, DetailView,
 from .models import Post
 from .forms import PostForm, CommentForm
 from django.utils import timezone
+from django.urls import reverse, reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
@@ -57,3 +58,11 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
     
     form_class = PostForm
     model = Post
+
+
+class PostDeleteView(LoginRequiredMixin, DeleteView):
+    """
+    Class for deleting a post
+    """
+    model = Post
+    success_url = reverse_lazy('post_list')
