@@ -2,7 +2,9 @@ from django.shortcuts import render
 from django.views.generic import (TemplateView, ListView, DetailView, 
                                   CreateView, UpdateView, DeleteView)
 from .models import Post
+from .forms import PostForm, CommentForm
 from django.utils import timezone
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
@@ -32,4 +34,16 @@ class PostDetailView(DetailView):
     Handles post detail view
     """
     model = Post
+
+
+class PostCreateView(LoginRequiredMixin ,CreateView):
+    """
+    Handles creating a new post
+    """
+    login_url = '/login/'
+    redirect_field_name = 'blog_app/post_detail.html'
     
+    form_class = PostForm
+    model = Post
+
+
