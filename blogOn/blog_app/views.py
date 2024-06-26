@@ -47,3 +47,13 @@ class PostCreateView(LoginRequiredMixin ,CreateView):
     model = Post
 
 
+class PostUpdateView(LoginRequiredMixin, UpdateView):
+    """
+    Class for updating post
+    """
+
+    login_url = '/login/'
+    redirect_field_name = 'blog_app/post_detail.html'
+    
+    form_class = PostForm
+    model = Post

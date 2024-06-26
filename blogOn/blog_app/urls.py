@@ -17,7 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from blog_app.views import (AboutView, PostListView, 
-                            PostDetailView, PostCreateView)
+                            PostDetailView, PostCreateView,
+                            PostUpdateView)
 
 
 urlpatterns = [
@@ -25,4 +26,5 @@ urlpatterns = [
     path('about/', AboutView.as_view(), name='about'),
     path('post/<int:pk>/', PostDetailView.as_view(), name='post_detail'),
     path('post/new/', PostCreateView.as_view(), name='post_new'),
+    path('post/<int:pk>/edit/', PostUpdateView.as_view(), name='post_edit'),
 ]
