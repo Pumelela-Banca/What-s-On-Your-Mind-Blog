@@ -19,7 +19,8 @@ from django.urls import path, include
 from blog_app.views import (AboutView, PostListView, 
                             PostDetailView, PostCreateView,
                             PostUpdateView, PostDeleteView,
-                            PostDraftListView)
+                            PostDraftListView, add_comment_to_post,
+                            comment_approve)
 
 
 urlpatterns = [
@@ -37,4 +38,9 @@ urlpatterns = [
          PostDeleteView.as_view(), name='post_delete'),
     path('drafts/', PostDraftListView.as_view(),
             name='post_draft_list'),
+     path('post/<int:pk>/comment', add_comment_to_post, 
+          name='add_comment_to_post'),
+     path('post/<int:pk>/comment/<int:comment_pk>/approve/',
+          comment_approve,
+          name='comment_approve'),
 ]
