@@ -20,7 +20,8 @@ from blog_app.views import (AboutView, PostListView,
                             PostDetailView, PostCreateView,
                             PostUpdateView, PostDeleteView,
                             PostDraftListView, add_comment_to_post,
-                            comment_approve)
+                            comment_approve, comment_remove,
+                            post_publish)
 
 
 urlpatterns = [
@@ -37,10 +38,16 @@ urlpatterns = [
     path('post/<int:pk>/delete/', 
          PostDeleteView.as_view(), name='post_delete'),
     path('drafts/', PostDraftListView.as_view(),
-            name='post_draft_list'),
-     path('post/<int:pk>/comment', add_comment_to_post, 
+          name='post_draft_list'),
+    path('post/<int:pk>/comment', add_comment_to_post, 
           name='add_comment_to_post'),
-     path('post/<int:pk>/comment/<int:comment_pk>/approve/',
-          comment_approve,
-          name='comment_approve'),
+    path('comment/<int:comment_pk>/approve/',
+         comment_approve,
+         name='comment_approve'),
+    path('comment/<int:comment_pk>/remove/',
+          comment_remove,
+          name='comment_remove'),
+    path('post/<int:pk>/publish/',
+          post_publish,
+          name='post_publish'),
 ]
