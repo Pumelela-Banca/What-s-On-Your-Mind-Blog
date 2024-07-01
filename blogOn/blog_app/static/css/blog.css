@@ -1,0 +1,35 @@
+.techfont {
+    font-family: 'Russo One', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+
+.box {
+    background-color: steelblue;
+    color: white;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 400px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 10px;
+    transform: translateX(200%);
+    transition: transform 0.4s ease;
+  }
+  
+  .box:nth-of-type(even) {
+    transform: translateX(-200%);
+  }
+  
+  .box.show {
+    transform: translateX(0);
+  }
+  
+  .box h2 {
+    font-size: 45px;
+  }
