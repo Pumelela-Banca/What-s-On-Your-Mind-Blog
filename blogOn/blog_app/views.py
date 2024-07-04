@@ -18,7 +18,7 @@ class AboutView(TemplateView):
     """
     Handles about page
     """
-    template_name = 'about.html'
+    template_name = 'blog_app/about.html'
 
 
 class PostListView(ListView):
