@@ -33,6 +33,12 @@ class PostListView(ListView):
                 '-published_date')
 
 
+class RegisterView(TemplateView):
+    """
+    Handles register page
+    """
+    template_name = 'registration/registration.html'
+
 class PostDetailView(DetailView):
     """
     Handles post detail view

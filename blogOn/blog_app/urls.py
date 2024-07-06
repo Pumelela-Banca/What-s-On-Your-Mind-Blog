@@ -19,7 +19,8 @@ from django.urls import path, include
 from blog_app.views import (AboutView, PostListView, 
                             PostDetailView, PostCreateView,
                             PostUpdateView, PostDeleteView,
-                            PostDraftListView, add_comment_to_post,
+                            PostDraftListView, RegisterView,
+                            add_comment_to_post,
                             comment_approve, comment_remove,
                             post_publish)
 
@@ -31,6 +32,8 @@ urlpatterns = [
          name='about'),
     path('post/<int:pk>/', PostDetailView.as_view(), 
          name='post_detail'),
+     path('register/', RegisterView.as_view(),
+           name='register'),
     path('post/new/', PostCreateView.as_view(), 
          name='post_new'),
     path('post/<int:pk>/edit/', 

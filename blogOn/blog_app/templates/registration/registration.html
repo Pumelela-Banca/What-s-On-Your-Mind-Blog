@@ -1,0 +1,11 @@
+{% extends "blog_app/base.html" %}
+{% block content %}
+<h2>Please Register:</h2>
+{% comment %} <div class="jumbotron">
+    <h2>Please Register:</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form> {% endcomment %}
+{% endblock %}
